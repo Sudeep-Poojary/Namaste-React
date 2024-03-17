@@ -17,7 +17,10 @@ root.render(myElement);
 ```
 
 ## Q2: Superpowers of `JSX`
+Ans:
 
 ## Q3: Role of `type` attribute in script tag? What options can I use there?
+Ans:
 
 ## Q4: `{TitleComponent}` vs `{<TitleComponent/>}` vs `{<TitleComponent></TitleComponent>}` in `JSX`
+Ans:
