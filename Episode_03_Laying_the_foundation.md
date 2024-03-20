@@ -32,4 +32,4 @@ Common options for the type attribute include:
 For modern JavaScript usage, specifying type="module" is recommended when using ES6 modules to take advantage of browser support and clear module separation.
 
 ## Q4: `{TitleComponent}` vs `{<TitleComponent/>}` vs `{<TitleComponent></TitleComponent>}` in `JSX`
-Ans:
+Ans: In JSX, `{TitleComponent}` represents the usage of a component directly, `{<TitleComponent/>}` and `{<TitleComponent></TitleComponent>}` both signify the instantiation of the component. However, `{<TitleComponent/>}` is a self-closing tag syntax, while `{<TitleComponent></TitleComponent>}` uses an opening and closing tag explicitly. The choice between them depends on whether the component requires children elements.
