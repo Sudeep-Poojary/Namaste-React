@@ -17,7 +17,15 @@ root.render(myElement);
 ```
 
 ## Q2: Superpowers of `JSX`
-Ans: `JSX`, a syntax extension for JavaScript often used with React, offers several superpowers that enhance web development. First, JSX provides a more expressive and intuitive way to write UI components by allowing developers to embed HTML-like syntax directly within JavaScript code. This simplifies the creation and manipulation of complex UI structures, improving readability and maintainability. Additionally, JSX facilitates seamless integration of JavaScript expressions and logic within the UI, enabling dynamic content generation and conditional rendering. Furthermore, JSX offers performance benefits by enabling the use of tools like Babel to efficiently compile JSX code into regular JavaScript, reducing runtime overhead. Its familiarity and ease of use make JSX a powerful tool for building modern, interactive web applications.
+Ans: `JSX`, a syntax extension for JavaScript often used with React, offers several superpowers that enhance web development. First, `JSX` provides a more expressive and intuitive way to write UI components by allowing developers to embed HTML-like syntax directly within JavaScript code. This simplifies the creation and manipulation of complex UI structures, improving readability and maintainability. Additionally, `JSX` facilitates seamless integration of JavaScript expressions and logic within the UI, enabling dynamic content generation and conditional rendering. Furthermore, `JSX` offers performance benefits by enabling the use of tools like Babel to efficiently compile `JSX` code into regular JavaScript, reducing runtime overhead. Its familiarity and ease of use make `JSX` a powerful tool for building modern, interactive web applications.
+
+### Example
+```
+function greeting(user) {
+//JSX
+  return <h1>{user}, How are you!!!</h1>;
+}
+```
 
 ## Q3: Role of `type` attribute in script tag? What options can I use there?
 Ans: The `type` attribute in a `<script>` tag specifies the media type of the script being referenced. It helps the browser understand how to interpret the content within the script tag.
