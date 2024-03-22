@@ -32,10 +32,15 @@ Ans: The `type` attribute in a `<script>` tag specifies the media type of the sc
 
 Common options for the type attribute include:
 
-1. `text/javascript:` Denotes JavaScript code (default if not specified).
-2. `text/ecmascript:` Denotes ECMAScript code.
-3. `application/javascript:` Another way to specify JavaScript code.
-4. `module:` Indicates that the script is a JavaScript module.
+1. `text/javascript` : It is the basic standard of writing javascript code inside the `<script>` tag.
+    ### Syntax
+    ```
+    <script type="text/javascript"></script>
+    ```
+2. `text/ecmascript` : this value indicates that the script is following the `EcmaScript` standards.
+3. `module`: This value tells the browser that the script is a module that can import or export other files or modules inside it.
+4. `text/babel` : This value indicates that the script is a babel type and required bable to transpile it.
+5. `text/typescript`: As the name suggest the script is written in `TypeScript`.
 
 For modern JavaScript usage, specifying type="module" is recommended when using ES6 modules to take advantage of browser support and clear module separation.
 
