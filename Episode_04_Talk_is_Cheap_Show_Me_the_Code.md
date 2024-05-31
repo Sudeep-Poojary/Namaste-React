@@ -16,7 +16,7 @@
 
 ## Q8: Why do we need `keys` in React?
 
-## Q9: Can we use index as keys in React?
+## Q9: Can we use `index` as `keys` in React?
 
 ## Q10: What is `props` in React? Ways to implement. 
 
