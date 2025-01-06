@@ -5,7 +5,7 @@ Ans: It is a tool used for package management and the default package manager fo
 - `npm` alternative is `yarn`
 
 - Initialation of `npm`
-```
+```javascript
 npm init
 ```
 `npm init -y` can be used to skip the setup step, `npm` takes care of it and creates the `package.json` json file automatically , but without configurations.
@@ -32,18 +32,18 @@ Ans: Parcel/Webpack is type of a web application bundler used for development an
 
 ### Installation Commands:
 - Install:
-```
+```javascript
 npm install -D parcel
 ```
 `-D` is used for development and as a development dependency.
 
 - Parcel Commands :
     - For development build:
-    ```
+    ```javascript
     npx parcel <entry_point> 
     ```
     - For production build :
-    ```
+    ```javascript
     npx parcel build <entry_point> 
     ```
 
@@ -81,13 +81,13 @@ The types of files you should consider adding to a .gitignore file are any files
 `package-lock.json` should `not add` into your `.gitignore` file.
 
 The entries in this file can also follow a matching pattern.
-```
+```javascript
 * is used as a wildcard match
 / is used to ignore pathnames relative to the .gitignore file
 # is used to add comments to a .gitignore file
 ```
 This is an example of what the .gitignore file could look like:
-```
+```javascript
 # Ignore Mac system files
 .DS_store
 
@@ -112,7 +112,7 @@ Ans: **~** or **^** in `package.json` file :
 These are used with the versions of the package installed.
 
 For example  in `package.json` file:
-```
+```javascript
 "dependencies": {
     "react": "^18.2.0",
     "react-dom": "^18.2.0"
