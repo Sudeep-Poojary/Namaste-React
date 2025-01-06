@@ -3,7 +3,7 @@
 ## Q1: Is `JSX` mandatory for React?
 Ans: `JSX` is an Extension Syntax that allows writing HTML and Javascript together easily in React and is used to create React elements. These elements are then rendered to the React DOM. Each JSX element is just to make use of React easy and for calling React.createElement(component, props, …children) with less work. So, anything that is done with JSX can also be done with just plain JavaScript. So `JSX` is not mandatory but is used for writing better and clean code instead of writing code using `React.CreateElement`.
 #### Example of `JSX`
-```
+```javascript
 const sample = <h2>Greetings</h2>;
 ```
 
@@ -19,7 +19,7 @@ The `{}` can embed a javascript expression or a variable or React element inside
 - `<TitleComponent/>` : This value represents a Component that is basically returning Some JSX value. In simple terms `TitleComponent` a function that is returning a JSX value. If component is written inside the `{<  />}` expression.
 - `<TitleComponent></TitleComponent>` :  `<TitleComponent />` and `<TitleComponent></TitleComponent>` are equivalent only when `< TitleComponent />` has no child components. The opening and closing tags are created to include the child components.
 #### Example
-```
+```javascript
 <TitleComponent>
     <FirstChildComponent />
     <SecondChildComponent />
@@ -31,7 +31,7 @@ The `{}` can embed a javascript expression or a variable or React element inside
 Ans: JSX comments are written as follows:
 - `{/*  */}` - for single or multiline comments
 #### Example
-```
+```javascript
 {/* A JSX comment */}
 {/* 
   Multi
@@ -45,7 +45,7 @@ Ans: JSX comments are written as follows:
 Ans: `<React.Fragment></React.Fragment>` is a feature in React that allows you to return multiple elements from a React component by allowing you to group a list of children without adding extra nodes to the DOM.
 `<></>` is the shorthand tag for `React.Fragment`. The only difference between them is that the shorthand version does not support the key attribute.
 #### Example
-```
+```javascript
 return (
         <React.Fragment>
             <Header />
@@ -82,7 +82,7 @@ Because Fiber is asynchronous, React can:
 Ans: A `key` is a special attribute you need to include when creating lists of elements in React. Keys are used in React to identify which items in the list are changed, updated, or deleted. In other words, we can say that keys are unique Identifier used to give an identity to the elements in the lists.
 Keys should be given to the elements within the array to give the elements a stable identity.
 #### Example
-```
+```javascript
 <li key={0}>1</li>
 <li key={1}>2</li>
 <li key={2}>3</li>
@@ -98,7 +98,7 @@ Ans: Short form for `properties`. To `dynamically` send data to a component we u
 
 ### Passing Props to a Component 
 ### Example
-```
+```javascript
 <RestaurantCard
     resName="Meghana Foods"
     cuisine="Biryani, North Indian"
@@ -111,7 +111,7 @@ component.
 ### Receiving props in the Component
 Props will be wrapped and send in `Javascript` object
 ### Example
-```
+```javascript
 const RestaurantCard = (props) => {
     return(
         <div>{props.resName}</div>
@@ -121,7 +121,7 @@ const RestaurantCard = (props) => {
 
 ### Destructuring Props
 ### Example
-```
+```javascript
 const RestaurantCard = ({resName, cuisine}) => {
     return(
         <div>{resName}</div>
