@@ -71,7 +71,22 @@ fetch(`${config.API_BASE_URL}/endpoint`)
   .catch(error => console.error('Error:', error));
 ```
 ## Q3: What are `React Hooks`?
-Ans:
+Ans: It's simply a regular JavaScript function. However, it
+becomes powerful when used within React, as it's provided to us
+by React itself. These pre-built functions have underlying logic
+developed by React developers. When we install React via npm, we
+gain access to these superpowers.
+
+**Here are some of the most utilized Hooks:**
+- `useState`: To manage states. Returns a stateful value and an updater function to update it.
+- `useEffect`: To manage side-effects like API calls, subscriptions, timers, mutations, and more.
+- `useContext`: To return the current value for a context.
+- `useReducer`: A useState alternative to help with complex state management.
+- `useCallback`: It returns a memorized version of a callback to help a child component not re-render unnecessarily.
+- `useMemo`: It returns a memoized value that helps in performance optimizations.
+- `useRef`: It returns a ref object with a current property. The ref object is mutable. It is mainly used to access a child component imperatively.
+- `useLayoutEffect`: It fires at the end of all DOM mutations. It's best to use useEffect as much as possible over this one as the useLayoutEffect fires synchronously.
+- `useDebugValue`: Helps to display a label in React DevTools for custom hooks.
 
 ## Q4: Why do we need `useState` Hook?
 Ans:
