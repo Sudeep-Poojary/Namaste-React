@@ -17,6 +17,20 @@ Ans: `Monolith` architecture is a traditional software design where an entire ap
 ## Q3: What is the difference between `Monolith` and `Microservice`?
 Ans:
 
+| **Aspect**               | **Monolith Architecture**                          | **Microservices Architecture**                     |
+|--------------------------|--------------------------------------------------|--------------------------------------------------|
+| **Structure**            | Single, unified codebase and application.        | Divided into small, independent services.        |
+| **Deployment**           | Entire application is deployed as a single unit. | Each service is deployed independently.          |
+| **Scalability**          | Scales as a whole, leading to inefficiencies.    | Individual services can be scaled independently. |
+| **Flexibility**          | Limited flexibility; tied to one tech stack.     | Each service can use different technologies.     |
+| **Fault Isolation**      | A failure in one part can impact the whole system.| Failures are isolated to specific services.      |
+| **Development Speed**    | Slower for large teams due to tight coupling.    | Faster, as teams can work on separate services.  |
+| **Maintenance**          | Challenging as the application grows.            | Easier due to smaller, focused services.         |
+| **Complexity**           | Simpler to develop initially.                    | More complex due to service communication.       |
+| **Performance**          | Can perform better initially for small apps.     | Better for large-scale apps with targeted scaling.|
+| **Use Case**             | Suitable for small or simple applications.       | Ideal for large, complex, and scalable systems.  |
+
+
 ## Q4: Why do we need a `useEffect` Hook?
 Ans:
 
