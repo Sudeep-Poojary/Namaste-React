@@ -32,13 +32,67 @@ Ans:
 
 
 ## Q4: Why do we need a `useEffect` Hook?
-Ans:
+Ans: The `useEffect` Hook in React is used to handle side effects in functional components, such as `data fetching through API`, `subscriptions`, `timers`, or `directly manipulating the DOM`. It allows you to run code after the component renders and keeps your code synchronized with external systems or APIs. The hook ensures that effects are properly cleaned up to avoid memory leaks.
+
+### **Syntax**:
+
+```javascript
+useEffect(() => {}, [])
+```
+
+The `() => {}` is `callback function` and `[]` is called a `empty dependency array`. If anything that we pass (suppose currentState) inside the `[]` it trigger the callback function and changes the state of the application.
+
+```javascript
+useEffect(() => {
+  // Side effect logic here (e.g., API call, event listener)
+  
+  return () => {
+    // Cleanup logic here (e.g., remove event listener)
+  };
+}, [dependencies]); // Array of dependencies to control when the effect runs
+```
+The dependency array determines when the effect re-runs:
+
+- `Empty array ([])`: Runs only once after the initial render.
+- `Dependencies specified`: Runs whenever the specified dependencies change.
+- `No array`: Runs after every render.
 
 ## Q5: What is `Optional Chaining`?
-Ans: 
+Ans: Optional chaining (`?.`) is a feature in JavaScript that allows you to safely access deeply nested properties of an object without having to check each level for `null` or `undefined`. It prevents runtime errors by returning `undefined` if any part of the chain is `null` or `undefined`, instead of throwing an error.
+
+### **Syntax**:
+```javascript
+obj?.property
+obj?.[expression]
+obj?.method()
+```
+
+### **Example**:
+```javascript
+const user = {
+  name: "John",
+  address: {
+    city: "New York",
+    postalCode: "10001"
+  }
+};
+
+console.log(user?.address?.city); // "New York"
+console.log(user?.profile?.age); // undefined (safe access, no error)
+```
+
+### **Use Cases**:
+- Accessing deeply nested object properties.
+- Checking for the existence of optional methods before calling them.
+- Handling cases where a property or object might not exist.
+
+### **Benefits**:
+
+- Reduces boilerplate code for null/undefined checks.
+- Prevents runtime errors in cases of missing properties or methods.
 
 ## Q6: What is `Shimmer UI`?
-Ans: 
+Ans: `Shimmer UI` in React refers to a placeholder loading effect that mimics the appearance of content while it's being fetched or processed. It creates a `shimmering` or `skeleton-like animation` to indicate where the actual content (like text, images, or lists) will appear, improving the perceived performance and user experience. Shimmer UI is commonly used in modern applications to give users a visual clue that content is `loading`, making the interface feel more interactive and responsive.
 
 ## Q7: What is the difference between `JS expression` and `JS statement`?
 Ans:
