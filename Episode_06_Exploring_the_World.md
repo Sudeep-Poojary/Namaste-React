@@ -156,10 +156,52 @@ export default App;
 Conditional rendering makes the application more interactive and dynamic by showing appropriate UI based on the application's state.
 
 ## Q9: What is `CORS`?
-Ans:
+Ans: `CORS (Cross-Origin Resource Sharing)` is a security feature in web browsers that allows or `restricts` resources (like APIs or fonts) to be accessed from a different origin (domain, protocol, or port) than the one from which the request originated. By default, browsers block such cross-origin requests to prevent potential security risks, such as cross-site scripting (XSS) or data theft.
+
+To enable cross-origin access, the server must include specific HTTP headers (e.g., `Access-Control-Allow-Origin`) in its responses, explicitly allowing requests from trusted origins. CORS is essential for enabling safe and controlled communication between web applications hosted on different domains.
 
 ## Q10: What is `async` and `await`?
-Ans:
+Ans: `async` and `await` are modern JavaScript features used to handle asynchronous operations in a more readable and manageable way, compared to traditional approaches like `callbacks` or `.then()` in `Promises`. They are often used in both plain JavaScript and React applications to work with asynchronous tasks, such as fetching data or performing background computations.
+
+### `async`
+- Declares a function as asynchronous.
+- Ensures that the function returns a Promise.
+- Inside an `async` function, you can use `await` to pause execution until a Promise resolves.
+
+### **Syntax:**
+```javascript
+async function fetchData() {
+  return "Data fetched";
+}
+fetchData().then(console.log); // Logs: "Data fetched"
+```
+
+### `await`
+- Used inside an `async` function to pause execution until a Promise resolves or rejects.
+- Makes asynchronous code appear synchronous, improving readability.
+
+### **Syntax:**
+```javascript
+async function fetchData() {
+  const data = await fetch("https://api.example.com/data");
+  const json = await data.json();
+  console.log(json);
+}
+fetchData();
+```
+
+### **Usage in React:**
+In React, `async` and `await` are commonly used for:
+
+- `Fetching Data`: To retrieve data from APIs in components, often within useEffect or event handlers.
+- `Handling Asynchronous Events`: To manage tasks like submitting forms, loading resources, etc.
+
+### **Benefits:**
+1. Improves code readability compared to `.then()` chains.
+2. Simplifies error handling with `try...catch`.
+3. Makes asynchronous code easier to write and debug.
+
+`async` and `await` are essential for managing asynchronous operations efficiently, especially in modern JavaScript and React development.
 
 ## Q11: What is the use of `const json = await data.json();` in `getRestaurants()`?
 Ans:
