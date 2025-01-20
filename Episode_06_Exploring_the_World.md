@@ -95,10 +95,65 @@ console.log(user?.profile?.age); // undefined (safe access, no error)
 Ans: `Shimmer UI` in React refers to a placeholder loading effect that mimics the appearance of content while it's being fetched or processed. It creates a `shimmering` or `skeleton-like animation` to indicate where the actual content (like text, images, or lists) will appear, improving the perceived performance and user experience. Shimmer UI is commonly used in modern applications to give users a visual clue that content is `loading`, making the interface feel more interactive and responsive.
 
 ## Q7: What is the difference between `JS expression` and `JS statement`?
-Ans:
+Ans: Here’s the difference between JavaScript expressions and statements:
+
+| **Aspect**          | **JavaScript Expression**                                      | **JavaScript Statement**                                       |
+|----------------------|---------------------------------------------------------------|----------------------------------------------------------------|
+| **Definition**       | Produces a value (evaluates to a result).                     | Performs an action or task but does not produce a value.       |
+| **Usage**            | Can be used wherever a value is expected (e.g., in variables).| Used to define the flow or structure of the program.          |
+| **Examples**         | `5 + 3`, `"Hello"`, `x * y`, `function call()`.               | `if`, `for`, `while`, `return`, `let x = 5;`.                 |
+| **Return Value**     | Always has a return value.                                    | Does not directly return a value, but may include expressions.|
+| **Purpose**          | To compute and return a result.                               | To control program execution or define logic.                 |
+
+### **Example:**
+```javascript
+// Expression
+const sum = 5 + 3; // Produces a value (8)
+
+// Statement
+if (sum > 5) {
+  console.log("Sum is greater than 5"); // Performs an action
+}
+```
 
 ## Q8: What is `Conditional Rendering`? explain with a code example.
-Ans:
+Ans: `Conditional Rendering` in React refers to dynamically rendering components or elements based on certain conditions. It works similarly to conditional statements in JavaScript (`if`, `else`, `ternary operators`, etc.). This technique is commonly used to display different UI elements depending on the application's state or user interactions.
+
+### **Example:**
+```javascript
+import React, { useState } from 'react';
+
+function App() {
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+
+  return (
+    <div>
+      {isLoggedIn ? ( 
+        // Renders when `isLoggedIn` is true
+        <h1>Welcome back, User!</h1>
+      ) : (
+        // Renders when `isLoggedIn` is false
+        <h1>Please log in</h1>
+      )}
+
+      <button onClick={() => setIsLoggedIn(!isLoggedIn)}>
+        {isLoggedIn ? "Log Out" : "Log In"}
+      </button>
+    </div>
+  );
+}
+
+export default App;
+```
+
+### **Explanation:**
+1. `Condition (isLoggedIn):` The UI depends on the isLoggedIn state.
+2. `Ternary Operator:` The isLoggedIn state determines which JSX is rendered:
+    - If true, it shows a welcome message.
+    - If false, it asks the user to log in.
+3. `Button:` Toggles the isLoggedIn state when clicked, dynamically updating the rendered content.
+
+Conditional rendering makes the application more interactive and dynamic by showing appropriate UI based on the application's state.
 
 ## Q9: What is `CORS`?
 Ans:
