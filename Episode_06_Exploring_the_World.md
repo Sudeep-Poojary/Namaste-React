@@ -204,4 +204,72 @@ In React, `async` and `await` are commonly used for:
 `async` and `await` are essential for managing asynchronous operations efficiently, especially in modern JavaScript and React development.
 
 ## Q11: What is the use of `const json = await data.json();` in `getRestaurants()`?
-Ans:
+Ans: Use of `const json = await data.json();` in `fetchData()`
+
+The line:
+
+```javascript
+const json = await data.json();
+```
+is used to parse the response from the `API` into a `JavaScript` object.
+
+## **Detailed Explanation:**
+
+1. **`fetch()` Makes a Network Request**
+    ```javascript
+    const data = await fetch("https://www.swiggy.com/dapi/restaurants/list/v5?lat=19.060587&lng=72.8251294&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING");
+    ```
+
+    - `fetch()` sends a request to the Swiggy API.
+
+    - The response (`data`) is a ReadableStream that needs to be converted into usable JSON format.
+
+2. **`await data.json()` Parses the Response**
+
+    ```javascript
+    const json = await data.json();
+    ```
+    - `.json()` is a method that extracts the response body and converts it into a JavaScript object.
+    - Since `.json()` returns a Promise, `await` ensures that the function waits for the JSON conversion to complete before proceeding.
+
+3. **Why is it Important?**
+
+    - APIs return raw data in JSON format as a string.
+    - `data.json()` converts it into a usable JavaScript object that can be accessed using dot notation (`json.data.cards[...]`).
+    - Without this step, `data` would be a Response object, not an actual usable data structure.
+
+## **Example Output Structure (Simplified JSON)**
+```json
+{
+  "data": {
+    "cards": [
+      {}, {}, {}, {},
+      {
+        "card": {
+          "card": {
+            "gridElements": {
+              "infoWithStyle": {
+                "restaurants": [ ... ]
+              }
+            }
+          }
+        }
+      }
+    ]
+  }
+}
+```
+
+This structure is why you use:
+
+```javascript
+json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants;
+```
+
+to extract the restaurant list from the response.
+
+## **Final Purpose in `fetchData()`**
+- Extracts and stores restaurant data into `setListOfRestaurants()`.
+- Ensures data is available before updating state, preventing runtime errors.
+
+This makes `await data.json();` a crucial step in handling API responses in React. 🚀
