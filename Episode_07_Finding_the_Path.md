@@ -7,7 +7,47 @@ Ans:
 Ans:
 
 ## Q3: How will `useEffect` behave if we `don't add` a `dependency array`?
-Ans:
+Ans: If you **do not** add a dependency array (`[]`) to `useEffect`, the effect **runs after every render**, including **initial mount** and **every re-render**. This means:  
+
+1. **Runs on Component Mount** – Executes once when the component is first rendered.  
+2. **Runs on Every Re-Render** – Any state or prop change that triggers a re-render will re-execute the `useEffect` callback.  
+
+### **Example: `useEffect` without a Dependency Array**
+```javascript
+import React, { useState, useEffect } from "react";
+
+function App() {
+  const [count, setCount] = useState(0);
+
+  useEffect(() => {
+    console.log("Effect is running...");
+  });
+
+  return (
+    <div>
+      <p>Count: {count}</p>
+      <button onClick={() => setCount(count + 1)}>Increase Count</button>
+    </div>
+  );
+}
+
+export default App;
+```
+
+### **Behavior in This Example**
+- The `console.log("Effect is running...")` will be executed on the initial render.
+- Every time `count` is updated (by clicking the button), `useEffect` runs again since there is no dependency array to control execution.
+
+### **When to Avoid Missing the Dependency Array?**
+
+❌ If the effect performs expensive operations (e.g., API calls, event listeners), it can cause performance issues due to frequent executions.
+
+✅ To control execution, you should use a dependency array:
+
+- Run once on mount → `useEffect(() => { ... }, [])`
+- Run only when specific dependencies change → `useEffect(() => { ... }, [dependency])`
+
+Thus, not adding a dependency array makes `useEffect` behave like a function that executes on every render, which may not always be desirable.
 
 ## Q4: What is `SPA`?
 Ans: A `Single Page Application (SPA)` is a web application that dynamically updates the content of a single HTML page without requiring full-page reloads. Instead of loading new pages from the server, `SPAs` fetch data asynchronously and update the user interface using JavaScript.
