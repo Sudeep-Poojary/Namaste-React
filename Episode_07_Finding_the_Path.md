@@ -1,10 +1,157 @@
 # EPISODE 07 - FINDING THE PATH
 
 ## Q1: What are various ways to `add images` into our App? Explain with `code` examples.
-Ans:
+Ans: 
+### **Various Ways to Add Images into a React App**
+In React, images can be added in multiple ways depending on their source and usage. Below are some common approaches with examples:
+
+---
+
+### **1. Importing Images Locally (Static Assets)**
+This method is used for images stored in the `src` folder.
+
+**Example:**
+```javascript
+import React from "react";
+import myImage from "./assets/image.jpg"; // Importing an image
+
+function App() {
+  return (
+    <div>
+      <h2>Local Image</h2>
+      <img src={myImage} alt="Local Asset" width="300" />
+    </div>
+  );
+}
+
+export default App;
+```
+
+✅ Best for: Static images bundled with the app.
+
+❌ Not ideal for: Dynamic or user-uploaded images.
+
+---
+
+### **2. Using Images from the `public` Folder**
+
+The `public` folder is not processed by Webpack, so images can be referenced directly with a relative URL.
+
+**Example:**
+```javascript
+function App() {
+  return (
+    <div>
+      <h2>Public Folder Image</h2>
+      <img src="/images/example.jpg" alt="Public Asset" width="300" />
+    </div>
+  );
+}
+
+export default App;
+```
+
+✅ Best for: Static images that don't change frequently.
+
+❌ Not optimized: Webpack doesn’t process these images.
+
+---
+
+### **3. Using an Image URL (External Source)**
+You can use an image hosted on a CDN, API, or any external URL.
+
+**Example:**
+```javascript
+function App() {
+  return (
+    <div>
+      <h2>External Image</h2>
+      <img src="https://via.placeholder.com/300" alt="External Asset" width="300" />
+    </div>
+  );
+}
+
+export default App;
+```
+
+✅ Best for: Remote images, user-uploaded content, and dynamic content.
+
+❌ Requires internet: Cannot be used offline.
+
+---
+
+### **4. Using Images from State or Props (Dynamic URLs)**
+If image URLs are stored in state or passed as props, they can be dynamically rendered.
+
+**Example:**
+```javascript
+import React, { useState } from "react";
+
+function App() {
+  const [imageUrl, setImageUrl] = useState("https://via.placeholder.com/300");
+
+  return (
+    <div>
+      <h2>Dynamic Image</h2>
+      <img src={imageUrl} alt="Dynamic Asset" width="300" />
+    </div>
+  );
+}
+
+export default App;
+```
+
+✅ Best for: Dynamic content, such as images from APIs or user uploads.
+
+---
+
+### **5. Using `require()` (CommonJS Syntax)**
+Instead of `import`, you can use `require()` to dynamically load images.
+
+**Example:**
+```javascript
+function App() {
+  return (
+    <div>
+      <h2>Require Image</h2>
+      <img src={require("./assets/image.jpg")} alt="Require Asset" width="300" />
+    </div>
+  );
+}
+
+export default App;
+```
+
+✅ Best for: When dynamic imports are needed.
+
+❌ Less commonly used: import is preferred in modern React.
+
+---
+
+### **Conclusion**
+
+| **Method**           | **Best For**                            | **Drawback**                     |
+|----------------------|----------------------------------------|----------------------------------|
+| **Importing Images** | Static assets bundled with the app    | Not for dynamic content         |
+| **Public Folder**    | Global assets accessible by URL       | No Webpack optimization         |
+| **External URLs**    | Remote/CDN images, user-generated content | Requires internet          |
+| **State/Props**      | Dynamically changing images           | Needs state management          |
+| **Require()**        | Dynamically loading local images      | Less flexible than `import`     |
+ 
+Each method has its use case, and the choice depends on whether the image is static, dynamic, or remotely hosted.
 
 ## Q2: What would happen if we do `console.log(useState())`?
-Ans:
+Ans: If you execute `console.log(useState())` without passing an initial value, React will throw an error because hooks **must be called inside a functional component or a custom hook**, not directly in the global scope or outside a component.  
+
+However, if used correctly inside a functional component like `console.log(useState(0))`, it will log an **array with two elements**:  
+1. **Current state value** (e.g., `0` if initialized as `useState(0)`).  
+2. **State setter function** (a function to update the state).  
+
+### **Example Output:**
+```javascript
+[0, ƒ] // [state value, state updater function]
+```
+Calling `useState()` without an initial value (`useState()`) will return `[undefined, ƒ]`. 
 
 ## Q3: How will `useEffect` behave if we `don't add` a `dependency array`?
 Ans: If you **do not** add a dependency array (`[]`) to `useEffect`, the effect **runs after every render**, including **initial mount** and **every re-render**. This means:  
